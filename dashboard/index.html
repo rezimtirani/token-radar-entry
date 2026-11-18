@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="brand"><span class="pulse" aria-hidden="true"></span><div><h1>TOKEN RADAR</h1><p class="tag">Which pre-token protocol is worth farming next — and what to do about it.</p></div></div>
+  <div class="stats" id="stats"></div>
+</header>
+<nav class="views" id="views" aria-label="Views">
+  <button data-view="board" class="on">Board</button>
+  <button data-view="live">Live tokens</button>
+  <button data-view="model">The model</button>
+</nav>
+<section class="controls" id="controls" aria-label="Filters">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+  <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+  <select id="status" aria-label="Status">
+    <option value="">All rows</option>
+    <option value="watchlist">Watchlist only</option>
+    <option value="early">Early radar only</option>
+    <option value="high">High likelihood</option>
+  </select>
+  <select id="sort" aria-label="Sort">
+    <option value="rank">Sort: rank</option>
+    <option value="value">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="growth">Sort: 7d growth</option>
+    <option value="age">Sort: age</option>
+  </select>
+</section>
+<main id="board" tabindex="-1"></main>
+<aside id="detail" aria-label="Protocol detail"></aside>
+<section id="extra"></section>
+<footer class="foot">
+  <p>Implied value is this radar's own claim from the snapshot's figures — TVL, 7-day growth, age with no token, chain reach — never a prediction that a token will launch, or when. A protocol "records no token" in DefiLlama's data; that is not proof it has none. Farm at your own risk: verify every contract address on the chain's explorer, never pay to claim an airdrop.</p>
+  <p id="source"></p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
