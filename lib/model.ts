@@ -313,7 +313,9 @@ export function likelihood(
 
 /** One line saying why a row ranks where it does, from its own figures. */
 export function whyLine(p: SnapshotProtocol, age: number | null, implied: number): string {
-  const tvl = `$${Math.round(p.tvl_usd / 1_000_000)}M TVL`;
+  const tvl = p.tvl_usd >= 1_000_000_000
+    ? `$${(p.tvl_usd / 1_000_000_000).toFixed(2).replace(/\.00$/, '')}B TVL`
+    : `$${Math.round(p.tvl_usd / 1_000_000)}M TVL`;
   const growth = p.change_7d === null ? '7d change unreported' : `${p.change_7d >= 0 ? '+' : ''}${p.change_7d}% in 7d`;
   const ageText = age === null ? 'age unreported' : age < 365 ? `${age}d old` : `${(age / 365).toFixed(1)}y old`;
   const chainText = p.chains.length === 1 ? `on ${p.chains[0]}` : `on ${p.chains.length} chains`;
